@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FendOff – Av tjejer för tjejer | Under uppbyggnad</title>
+    <meta name="description" content="FendOff är en laglig försvarsspray utvecklad av Lily i Borlänge. Av tjejer för tjejer. Trygghet, säkerhet och markering med mentol, UV och röd färg. Vår webbshop öppnar snart.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        /* ----- RESET & BAS ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d0d12;
+            --bg-card: #16161e;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b0;
+            --accent: #e8a0b4; /* Mjuk rosa */
+            --accent-dark: #c97a92;
+            --success: #7bc9a0;
+            --warning: #f0c080;
+            --border: rgba(255, 255, 255, 0.08);
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ----- HEADER ----- */
+        header {
+            padding: 32px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #fff;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo-sub {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ----- HERO / UNDER CONSTRUCTION ----- */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 20%, rgba(232, 160, 180, 0.12) 0%, transparent 60%);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(232, 160, 180, 0.15);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(232, 160, 180, 0.3);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        /* ----- SEKTIONER ----- */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        /* ----- OM OSS / HISTORIEN ----- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .about-text strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .quote-box {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 32px;
+        }
+
+        .quote-box p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .image-stack {
+            position: relative;
+            text-align: center;
+        }
+
+        .image-stack img {
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .image-stack .logo-overlay {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 120px;
+            background: var(--bg-card);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        /* ----- PRODUKTEGENSKAPER ----- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 32px 24px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ----- LAGLIGHET ----- */
+        .legal-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(123, 201, 160, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .legal-box h3 {
+            color: var(--success);
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-box p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .legal-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .legal-box ul li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .legal-box ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* ----- KONTAKT / NOTIFIERING ----- */
+        .contact-section {
+            text-align: center;
+            padding-bottom: 80px;
+            border-bottom: none;
+        }
+
+        .contact-section p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto 24px;
+        }
+
+        .notify-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .notify-form input:focus {
+            border-color: var(--accent);
+        }
+
+        .notify-form button {
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: none;
+            background: var(--accent);
+            color: var(--bg-dark);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .notify-form button:hover {
+            background: var(--accent-dark);
+            color: #fff;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ----- RESPONSIVITET ----- */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .image-stack {
+                order: -1;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .notify-form {
+                flex-direction: column;
+            }
+            .legal-box {
+                padding: 24px;
+            }
+            .logo {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <!-- Byt ut 'logo.png' mot din logotypbild -->
+            <div class="logo">FEND<span>OFF</span>
+                <span class="logo-sub">Av tjejer för tjejer</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO / UNDER UPPBYGGNAD -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Webbshop under uppbyggnad</div>
+            <h1>Din trygghet.<br><em>Vårt primära mål.</em></h1>
+            <p>
+                Vi bygger just nu Sveriges mest omtänkta försvarsspray – utvecklad av tjejer, för tjejer. 
+                Snart kan du beställa FendOff direkt via vår webbshop. Tills dess kan du läsa mer om 
+                vår vision, produkten och varför den är helt laglig i Sverige.
+            </p>
+        </div>
+    </section>
+
+    <!-- OM OSS / HISTORIEN -->
+    <section>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">Av tjejer, för tjejer</h2>
+                    <p class="section-sub">Utvecklad i Borlänge av Lily.</p>
+                    <p>
+                        <strong>FendOff</strong> föddes ur en enkel men kraftfull insikt: att känna sig trygg ska inte vara en lyx. 
+                        Grundaren <strong>Lily</strong> tröttnade på känslan av otrygghet när hon rörde sig ute på kvällarna och bestämde sig för att 
+                        skapa ett verktyg som faktiskt gör skillnad.
+                    </p>
+                    <p>
+                        Vår filosofi är enkel: vi säljer inte bara en produkt – vi säljer <strong>trygghet</strong>. 
+                        Varje detalj i FendOff är framtagen med omtanke om dig som användare. Vi förstår 
+                        känslan av att gå hem ensam, att vänta på bussen i mörkret eller att ta en genväg 
+                        genom parken. Därför har vi utvecklat en lösning som är diskret, lättillgänglig och 
+                        enkel att använda om olyckan skulle vara framme.
+                    </p>
+                    <p>
+                        Vi vänder oss till både privatpersoner och återförsäljare. Vår ambition är att 
+                        FendOff ska finnas tillgänglig där du behöver den som mest – i handeln, hos 
+                        butiker och så småningom i vår egen webbshop.
+                    </p>
+                    <div class="quote-box">
+                        <p>"Att känna sig trygg är en rättighet. Vi finns här för att göra den känslan till verklighet."</p>
+                        <p style="font-family: var(--font-sans); font-style: normal; font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">– Lily, grundare</p>
+                    </div>
+                </div>
+                <div class="image-stack">
+                    <!-- Byt ut 'logo-face.jpg' mot din bild på ansiktet med logotypen -->
+                    <img src="logo-face.jpg" alt="FendOff logotyp projicerad" style="width:100%; border-radius:16px; margin-bottom: 20px;">
+                    <!-- Byt ut 'logo-black.jpg' mot din logotyp med svart bakgrund -->
+                    <img src="logo-black.jpg" alt="FendOff logotyp" style="width:100%; border-radius:16px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUKTEGENSKAPER -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Så fungerar FendOff</h2>
+            <p class="section-sub">En laglig försvarsspray med flera smarta funktioner – utformad för att ge dig tid att fly.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🌿</span>
+                    <h3>Mentolbaserad</h3>
+                    <p>Irriterar ögonen tillfälligt och ger dig värdefulla sekunder att ta dig därifrån. Innehåller inget retande pepparämne.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔴</span>
+                    <h3>Röd markering</h3>
+                    <p>Sprayen innehåller ett rött färgämne som är svårt att tvätta bort. Det gör angriparen lättare att identifiera i efterhand.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🟣</span>
+                    <h3>UV-märkning</h3>
+                    <p>En osynlig UV-färg markerar angriparen. Polisen kan identifiera personen med UV-ljus, även om rödfärgen skulle tvättas bort.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚖️</span>
+                    <h3>100% Laglig i Sverige</h3>
+                    <p>FendOff är en licensfri försvarsspray som är laglig att köpa, inneha och bära för privatpersoner i Sverige.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;">
+                <!-- Byt ut 'product-box.png' mot din produktbild med förpackning -->
+                <img src="product-box.png" alt="FendOff Försvarsspray" style="max-width: 600px; margin: 0 auto; border-radius: 16px;">
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 16px;">Produktbilden är en illustration. Slutlig design kan komma att justeras.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAGLIGHET -->
+    <section>
+        <div class="container">
+            <div class="legal-box">
+                <h3>✓ Laglig och licensierad i Sverige</h3>
+                <p>
+                    Vi förstår att det kan vara förvirrande med reglerna kring försvarssprayer. 
+                    Därför vill vi vara tydliga: <strong>FendOff är en laglig försvarsspray</strong> som 
+                    inte kräver något tillstånd från Polismyndigheten. 
+                </p>
+                <p>
+                    Skillnaden ligger i innehållet. Pepparspray räknas som vapen enligt vapenlagen och 
+                    kräver tillstånd. FendOff innehåller istället mentol och färg – vilket gör den 
+                    licensfri och laglig för privatpersoner att bära.
+                </p>
+                <ul>
+                    <li>Laglig att köpa och inneha för privatpersoner i Sverige.</li>
+                    <li>Kräver inget tillstånd från polisen.</li>
+                    <li>Innehåller mentol, röd färg och UV-märkning – inget pepparämne.</li>
+                    <li>Avsedd för självförsvar i nödsituationer.</li>
+                </ul>
+                <p style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);">
+                    <em>Används endast i nödvärn. Missbruk kan leda till straffansvar. Lagar och regler kan variera i andra länder.</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT / NOTIFIERING -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Bli först att veta när vi lanserar</h2>
+            <p>Lämna din e-postadress så meddelar vi dig så snart webbshopen är öppen. Har du frågor eller vill bli återförsäljare? Kontakta oss direkt.</p>
+            
+            <!-- Formulär (kan kopplas till GitHub Issues eller tjänst som Formspree) -->
+            <form class="notify-form" action="#" method="POST">
+                <input type="email" name="email" placeholder="Din e-postadress" required>
+                <button type="submit">Meddela mig</button>
+            </form>
+
+            <div class="contact-info">
+                <p>📧 <a href="mailto:fendoffbylily@gmail.com">fendoffbylily@gmail.com</a></p>
+                <p>📍 Borlänge, Sverige</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.fendoff.se">www.fendoff.se</a>
+                <a href="mailto:fendoffbylily@gmail.com">Kontakt</a>
+                <a href="#">Integritetspolicy (kommer snart)</a>
+            </div>
+            <p>&copy; 2026 FendOff by Lily. Alla rättigheter förbehållna.</p>
+            <p style="margin-top: 8px; font-size: 0.75rem; color: #555;">Byggd med omtanke i Borlänge.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
